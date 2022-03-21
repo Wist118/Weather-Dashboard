@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <!--title of website-->
+    <header class="row mb-4">
+        <h1 class="col-12 text-center text-light" style="background-color: blue;">Weather Dashboard</h1>
+        <P class="time col-12"></P>
+    </header>
+
+    <!--left section containing search bar and past searches-->
+    <section class="row min-vh-100 no-gutters">
+        <!--search area-->
+    <div class="col-12 col-lg-3 bg-dark text-light sticky-top d-flex flex-column p-4 p-lg-3">
+        <div>
+        <label class="form-label" for="city-search">Search for a City:</label>
+        </div>
+        <div>
+        <input name="city-search" id="city-search" type="text" autofocus="true" class="form-input col-12" />
+        </div>
+        <div>
+        <button class="btn btn-primary col-12" id="enter" type="submit">Search</button>
+        </div>
+        <!--retrieve local storage and turn results into buttons that return the past search-->
+        <div class="history"></div>
+    </div>
+
+        <!--section displaying currently searched city's weather-->
+    <main class="col-9 p-4">
+
+        <div class="col-12 border border-dark rounded">
+            <h2 class="text-center border-bottom border-dark">City Name:</h2>
+            <ul>
+                <li class="temp">temp</li>
+                <li class="wind">wind</li>
+                <li class="humidity">humidity</li>
+                <li class="uv">uv index</li>
+            </ul>
+        </div>
+
+        <!--area below current city displaying the 5 day forcast of current city searched-->
+        <div class="col-12 mt-4 border border-dark rounded">
+            <h2 class="text-center border-bottom border-dark">5 Day Forcast</h2>
+            <div>
+                <h2  class="forcast">forcasts</h2>
+            </div>
+        </div>
+
+    </main>
+
+    </section>
+
+</body>
+
+<script src="./assets/js/weather.js"></script>
+</html>
