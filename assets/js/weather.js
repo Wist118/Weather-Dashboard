@@ -1,10 +1,12 @@
+// global variables
+
 var cityInputEl = document.querySelector("#city-search")
 var submitBtn = document.querySelector(".btn")
 var cityList = document.querySelector(".history")
 
-
+// function to retrieve and display user's searched city
 var getCity = function() {
-    // format the github api url
+    // format the weather api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInputEl.value + "&appid=2f773b051d37d7cec042560d139536a5&units=imperial";
     
 
@@ -28,9 +30,10 @@ var getCity = function() {
         }
     })
     fiveDay()
+    //uvIndex()
 };
 
-
+// function to save and display past searches and turn them into usable links
 var saveCity = function() {
     var dropd = document.getElementById("city-search").value;
     var drophistory = JSON.parse(localStorage.getItem("city")) || [];
@@ -71,13 +74,13 @@ var saveCity = function() {
             })
             
         };
-
+        // add eventlistener to past searches
         cityHistory.addEventListener("click", getCity2)
     
 
 }
 
-
+// function to display the five day forcast for chosen city
 var fiveDay = function() {
     var apiUrlFive = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputEl.value + "&cnt=5&appid=2f773b051d37d7cec042560d139536a5"
         
@@ -95,7 +98,7 @@ var fiveDay = function() {
             }
         })
 }
-
+// function to display the current uv index of city chosen
 var uvIndex = function() {
     var apiUrlUv = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInputEl.value + "&appid=2f773b051d37d7cec042560d139536a5"
         
@@ -115,5 +118,5 @@ var uvIndex = function() {
 }
 
 
-
+// add eventlistener to search button
 submitBtn.addEventListener("click", getCity)
